@@ -22,7 +22,9 @@ try:
       print ("DISCONNECTED")
       exchange = user_input * hrktoeur, user_input * eurtohrk
 except Exception as e:
+    hrktoeur = 0.13
+    eurtohrk = 7.51
     print ("NO INTERNET")
-    print (str(e))
+    exchange = user_input * hrktoeur, user_input * eurtohrk
 
 print(exchange)
