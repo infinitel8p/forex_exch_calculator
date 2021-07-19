@@ -13,7 +13,7 @@ print()
 
 try:
     response = requests.get(url_hrktoeur)
-    print(f"Status code: {int(response.status_code)})
+    print(f"Status code: {int(response.status_code)}")
     if response.status_code == requests.codes.ok:
         hrktoeur = response.json()["HRK_EUR"]
         eurtohrk = requests.get(url_eurtohrk).json()["EUR_HRK"]
