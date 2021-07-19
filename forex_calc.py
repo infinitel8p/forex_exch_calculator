@@ -15,16 +15,16 @@ try:
         eurtohrk = requests.get(url_eurtohrk).json()["EUR_HRK"]
         print(f"1 EUR = {eurtohrk} HRK")
         print(f"1 HRK = {hrktoeur} EUR\n")
-        exchange = f"EUR: {user_input * hrktoeur}\nHKR: {user_input * eurtohrk}"
+        exchange = f"EUR: {round(user_input * hrktoeur, 2)}\nHKR: {round(user_input * eurtohrk, 2)}"
     else:
       hrktoeur = 0.13
       eurtohrk = 7.51
       print ("DISCONNECTED")
-      exchange = f"EUR: {user_input * hrktoeur}\nHKR: {user_input * eurtohrk}"
+      exchange = f"EUR: {round(user_input * hrktoeur, 2)}\nHKR: {round(user_input * eurtohrk, 2)}"
 except Exception as e:
     hrktoeur = 0.13
     eurtohrk = 7.51
     print ("NO INTERNET")
-    exchange = f"EUR: {user_input * hrktoeur}\nHKR: {user_input * eurtohrk}"
+    exchange = f"EUR: {round(user_input * hrktoeur, 2)}\nHKR: {round(user_input * eurtohrk, 2)}"
 
 print(exchange)
