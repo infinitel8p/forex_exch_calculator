@@ -1,6 +1,8 @@
 import requests
 import json
 import time
+from kivy.app import App
+from kivy.uix.widget import Widget
 
 url_hrktoeur = "https://free.currconv.com/api/v7/convert?q=HRK_EUR&compact=ultra&apiKey=75f83697d28865fde0f4"
 url_eurtohrk = "https://free.currconv.com/api/v7/convert?q=EUR_HRK&compact=ultra&apiKey=75f83697d28865fde0f4"
@@ -28,3 +30,16 @@ except Exception as e:
     exchange = f"EUR: {round(user_input * hrktoeur, 2)}\nHKR: {round(user_input * eurtohrk, 2)}"
 
 print(exchange)
+
+
+class PongGame(Widget):
+    pass
+
+
+class PongApp(App):
+    def build(self):
+        return PongGame()
+
+
+if __name__ == '__main__':
+    PongApp().run()
