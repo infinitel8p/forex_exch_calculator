@@ -48,19 +48,18 @@ class ForexConvert(App):
         self.user = TextInput(
                     multiline= False,
                     padding_y= (20,20),
-                    size_hint= (1, 0.5)
+                    size_hint= (1, 0.25)
                     )
-
         self.window.add_widget(self.user)
 
         # button widget
         self.button = Button(
                       text= "Umrechnen",
-                      size_hint= (1,0.5),
+                      size_hint= (1,0.25),
                       bold= True,
                       background_color ='#8800FF',
                       #remove darker overlay of background colour
-                      # background_normal = ""
+                      #background_normal = ""
                       )
         self.button.bind(on_press=self.callback)
         self.window.add_widget(self.button)
@@ -70,6 +69,6 @@ class ForexConvert(App):
     def callback(self, instance):
         self.display_status.text = f"EUR: {round(float(self.user.text) * hrktoeur, 2)}\nHKR: {round(float(self.user.text) * eurtohrk, 2)}"
 
-# run Say Hello App Calss
+# run Forex App calls
 if __name__ == "__main__":
     ForexConvert().run()
