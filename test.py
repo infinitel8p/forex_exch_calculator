@@ -1,33 +1,79 @@
 from kivy.lang import Builder
+from kivy.properties import ObjectProperty
 
-from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.app import MDApp
+from kivymd.uix.boxlayout import MDBoxLayout
 
 KV = '''
-MDBoxLayout:
+<ContentNavigationDrawer>:
 
-    ScreenManager:
+    ScrollView:
 
-        MDScreen:
+        MDList:
 
-            # Will always be at the bottom of the screen.
-            MDBottomAppBar:
+            OneLineListItem:
+                text: "Screen 1"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 1"
 
-                MDToolbar:
-                    title: "Title"
-                    icon: "git"
-                    type: "bottom"
-                    mode: "end"
-                    left_action_items: [["menu", lambda x: x]]
-                    on_action_button: app.callback(self.icon)
+            OneLineListItem:
+                text: "Screen 2"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 2"
+
+
+MDScreen:
+    MDBottomAppBar:
+
+        MDToolbar:
+            id: toolbar
+            title: "Title"
+            icon: "git"
+            type: "bottom"
+            mode: "end"
+            elevation: 10
+            left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+            on_action_button: app.callback(self.icon)
+
+    MDNavigationLayout:
+        x: toolbar.height
+
+        ScreenManager:
+            id: screen_manager
+
+            MDScreen:
+                name: "scr 1"
+
+                MDLabel:
+                    text: "Screen 1"
+                    halign: "center"
+
+            MDScreen:
+                name: "scr 2"
+
+                MDLabel:
+                    text: "Screen 2"
+                    halign: "center"
+
+        MDNavigationDrawer:
+            id: nav_drawer
+
+            ContentNavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
 '''
 
-class ContentNavigationDrawer(MDBoxLayout):
-    pass
 
-class Test(MDApp):
+class ContentNavigationDrawer(MDBoxLayout):
+    screen_manager = ObjectProperty()
+    nav_drawer = ObjectProperty()
+
+
+class TestNavigationDrawer(MDApp):
     def build(self):
         return Builder.load_string(KV)
 
 
-Test().run()
+TestNavigationDrawer().run()
