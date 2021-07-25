@@ -1,10 +1,11 @@
 from kivymd.uix.screen import MDScreen
 from kivymd.app import MDApp
+from kivy.lang import Builder
 from kivy.uix.image import Image
 from kivymd.uix.button import MDFillRoundFlatIconButton, MDFillRoundFlatButton
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.label import MDLabel
-from kivymd.uix.toolbar import MDToolbar
+from kivymd.uix.toolbar import MDBottomAppBar, MDToolbar
 import requests
 
 url_hrktoeur = "https://free.currconv.com/api/v7/convert?q=HRK_EUR&compact=ultra&apiKey=75f83697d28865fde0f4"
@@ -38,6 +39,9 @@ class ConverterApp(MDApp):
             self.label.text = "is in HRK:"
             self.converted.text = str(val)
 
+    def lai(self):
+        print("working")
+
     def build(self):
         self.state = 0
         self.theme_cls.primary_palette = "DeepPurple"
@@ -47,8 +51,9 @@ class ConverterApp(MDApp):
         #top toolbar
         self.toolbar = MDToolbar(title = "HRK to EUR converter")
         self.toolbar.pos_hint = {"top" : 1}
-        self.toolbar.right_action_items = [
-            ["rotate-3d-variant", lambda x : self.flip()]]
+        self.toolbar.elevation = 10
+        self.toolbar.left_action_items = [["menu", lambda x: self.lai()]]
+        self.toolbar.right_action_items = [["rotate-3d-variant", lambda x : self.flip()]]
         screen.add_widget(self.toolbar)
 
 
@@ -114,6 +119,7 @@ class ConverterApp(MDApp):
             )
         )
 
+
         #more labels
         self.label = MDLabel(
             halign = "center",
@@ -121,6 +127,8 @@ class ConverterApp(MDApp):
             theme_text_color = "Secondary"
         )
         screen.add_widget(self.label)
+
+
         self.converted = MDLabel(
             halign = "center",
             pos_hint = {"center_x" : 0.5, "center_y" : 0.3},

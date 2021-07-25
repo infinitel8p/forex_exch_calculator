@@ -1,0 +1,33 @@
+#:kivy 2.0.0
+MDScreen:
+    MDBoxLayout:
+        orientation : "vertical"
+
+        #top toolbar
+        MDToolbar:
+            title : "HRK to EUR converter"
+            pos_hint : {"top" : 1}
+            left_action_items : [["menu", lambda x: self.lai()]]
+            right_action_items : [["rotate-3d-variant", lambda x : self.flip()]]
+
+
+        MDBottomAppBar:
+            MDToolbar:
+                icon : "git"
+                type : "bottom"
+                mode: "free-end"
+
+
+
+        #bottom toolbar
+        #self.bottom_toolbar = MDBottomAppBar MDToolbar(title = "title")
+        #self.bottom_toolbar.icon = "git"
+        #self.bottom_toolbar.type = "bottom"
+        #self.bottom_toolbar.left_action_items = [["menu", lambda x: self.lai()]]
+        #screen.add_widget(self.bottom_toolbar)
+
+        #try:
+        #    Builder.load_file("toolbars.kv")
+        #    print("done")
+        #except:
+        #    print()
