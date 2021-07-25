@@ -59,9 +59,7 @@ class ConverterApp(MDApp):
 
 
         #menu
-        self.menu = MDToolbar(
-            id = "toolbar"
-        )
+
 
 
         #connection status label
