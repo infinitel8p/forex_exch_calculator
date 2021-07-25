@@ -23,7 +23,6 @@ KV = '''
                     root.nav_drawer.set_state("close")
                     root.screen_manager.current = "scr 2"
 
-
 MDScreen:
     MDBottomAppBar:
 
@@ -35,7 +34,7 @@ MDScreen:
             mode: "end"
             elevation: 10
             left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
-            on_action_button: app.callback(self.icon)
+            on_action_button: app.callback("test")
 
     MDNavigationLayout:
         x: toolbar.height
@@ -65,15 +64,15 @@ MDScreen:
                 nav_drawer: nav_drawer
 '''
 
-
 class ContentNavigationDrawer(MDBoxLayout):
     screen_manager = ObjectProperty()
     nav_drawer = ObjectProperty()
-
 
 class TestNavigationDrawer(MDApp):
     def build(self):
         return Builder.load_string(KV)
 
+    def callback(self, instance):
+        print("working " + instance)
 
 TestNavigationDrawer().run()
