@@ -58,7 +58,7 @@ class ConverterApp(MDApp):
             pos_hint = {"center_x": 0.485, "center_y":0.84},
             theme_text_color = "Hint",
             text = "Checking connection...",
-            font_size = 12,
+            #font_size = 12,
             font_style = "Caption"
             )
         screen.add_widget(self.status_label)
@@ -91,7 +91,7 @@ class ConverterApp(MDApp):
 
         #user input
         self.input = MDTextField(
-            font_size = 22,
+            #font_size = 22,
             hint_text = "Enter the value in HRK",
             helper_text = "Please use . insted of , for cents",
             helper_text_mode = "on_focus",
@@ -108,7 +108,7 @@ class ConverterApp(MDApp):
         #convert button
         screen.add_widget(MDFillRoundFlatButton(
             text = "CONVERT",
-            font_size = 17,
+            #font_size = 17,
             pos_hint = {"center_x" : 0.5, "center_y" : 0.15},
             on_press = self.convert
             )
