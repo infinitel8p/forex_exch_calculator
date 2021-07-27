@@ -55,8 +55,8 @@ class ConverterApp(MDApp):
         #connection status label
         self.status_label = MDLabel(
             halign="right",
-            pos_hint = {"center_x": 0.485, "center_y":0.84},
             theme_text_color = "Hint",
+            pos_hint = {"center_x": 0.485, 'center_y': 0.05},
             text = "Checking connection...",
             #font_size = 12,
             font_style = "Caption"
@@ -99,8 +99,8 @@ class ConverterApp(MDApp):
             icon_right = "calculator",
             multiline = False,
             on_text_validate = self.convert,
-            pos_hint = {"center_x" : 0.5, "center_y" : 0.45},
-            size_hint = (0.8, 1)
+            pos_hint = {"center_x" : 0.5, "center_y" : 0.5},
+            size_hint = (0.8, 1.2)
         )
         screen.add_widget(self.input)
 
