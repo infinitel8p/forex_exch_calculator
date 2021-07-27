@@ -100,7 +100,8 @@ class ConverterApp(MDApp):
             multiline = False,
             on_text_validate = self.convert,
             pos_hint = {"center_x" : 0.5, "center_y" : 0.5},
-            size_hint = (0.8, 1.2)
+            size_hint = (0.8, 1.2),
+            mode = "rectangle"
         )
         screen.add_widget(self.input)
 
