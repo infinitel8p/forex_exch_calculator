@@ -5,12 +5,9 @@ from kivymd.uix.button import MDFillRoundFlatIconButton, MDFillRoundFlatButton
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.label import MDLabel
 from kivymd.uix.toolbar import MDToolbar
-import requests
+import Basic_Tricks
+import Grind_Slide_Tricks
 
-url_hrktoeur = "https://free.currconv.com/api/v7/convert?q=HRK_EUR&compact=ultra&apiKey=75f83697d28865fde0f4"
-url_eurtohrk = "https://free.currconv.com/api/v7/convert?q=EUR_HRK&compact=ultra&apiKey=75f83697d28865fde0f4"
-hrktoeur = 0.13
-eurtohrk = 7.51
 class ConverterApp(MDApp):
     def flip(self):
         if self.state == 0:
@@ -50,34 +47,6 @@ class ConverterApp(MDApp):
         self.toolbar.right_action_items = [
             ["rotate-3d-variant", lambda x : self.flip()]]
         screen.add_widget(self.toolbar)
-
-
-        #connection status label
-        self.status_label = MDLabel(
-            halign="right",
-            theme_text_color = "Hint",
-            pos_hint = {"center_x": 0.485, 'center_y': 0.05},
-            text = "Checking connection...",
-            #font_size = 12,
-            font_style = "Caption"
-            )
-        screen.add_widget(self.status_label)
-
-        try:
-            response = requests.get(url_hrktoeur)
-            print(f"\nStatus code: {int(response.status_code)}")
-            global hrktoeur, eurtohrk
-            if response.status_code == requests.codes.ok:
-                global hrktoeur, eurtohrk
-                hrktoeur = response.json()["HRK_EUR"]
-                eurtohrk = requests.get(url_eurtohrk).json()["EUR_HRK"]
-                self.status_label.text = f"Status {int(response.status_code)}: CONNECTED\n1 EUR = {eurtohrk} HRK\n1 HRK = {hrktoeur} EUR"
-            else:
-                self.status_label.theme_text_color = "Error"
-                self.status_label.text = f"Status {int(response.status_code)}: DISCONNECTED\n1 EUR = {eurtohrk} HRK\n1 HRK = {hrktoeur} EUR"
-        except Exception as e:
-                self.status_label.theme_text_color = "Error"
-                self.status_label.text = f"Status error: NO INTERNET\n1 EUR = {eurtohrk} HRK\n1 HRK = {hrktoeur} EUR"
 
 
         #logo
