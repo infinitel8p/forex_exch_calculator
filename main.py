@@ -37,12 +37,13 @@ class ConverterApp(MDApp):
 
     def build(self):
         self.state = 0
-        self.theme_cls.primary_palette = "DeepPurple"
+        self.new_game = 0
+        self.theme_cls.primary_palette = "BlueGray"
         screen = MDScreen()
 
 
         #top toolbar
-        self.toolbar = MDToolbar(title = "HRK to EUR converter")
+        self.toolbar = MDToolbar(title = "Game of S.K.A.T.E")
         self.toolbar.pos_hint = {"top" : 1}
         self.toolbar.right_action_items = [
             ["rotate-3d-variant", lambda x : self.flip()]]
@@ -76,7 +77,7 @@ class ConverterApp(MDApp):
 
         #convert button
         screen.add_widget(MDFillRoundFlatButton(
-            text = "CONVERT",
+            text = "New Trick",
             #font_size = 17,
             pos_hint = {"center_x" : 0.5, "center_y" : 0.15},
             on_press = self.convert
