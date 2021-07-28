@@ -1,0 +1,218 @@
+#Basic Tricks
+Backside 180
+Backside 360
+Backside Caballerial
+Backside Half Cab
+Fakie Ollie
+Frontside 180
+Frontside 360
+Frontside Caballerial
+Frontside Half Cab
+Kickturn
+Nollie
+Nollie Backside 180
+Nollie Backside 360
+Nollie Frontside 180
+Nollie Frontside 360
+Ollie
+Ollie North
+Ollie South
+Powerslide
+Switch Backside 180
+Switch Backside 360
+Switch Frontside 180
+Switch Frontside 360
+Switch Ollie
+Tic-Tac
+
+#Flip and Shove-It Tricks
+360 Flip
+360 Hardflip
+360 Ollie Heelflip
+360 Ollie Kickflip
+360 Pop Shove-it
+360 Shuvit
+540 Flip
+720 Flip
+Alpha Flip
+Anti Casper Flip
+Backside Bigspin
+Backside Flip
+Backside Half Cab Heelflip
+Backside Half Cab Kickflip
+Backside Heelflip
+Backside Kickflip
+Big Heelflip
+Bigflip
+Biggerflip
+Biggerspin
+Bigspin
+Bubble Flip
+Bullflip
+Caballerial Flip
+Camel Flip
+Casper Flip
+Daydream Flip
+De Comply
+Disco Flip
+Double Heelflip
+Double Kickflip
+Dragon Flip
+Fakie 360 Flip
+Fakie 360 Hardflip
+Fakie Backside Bigspin
+Fakie Backside Pop Shove-it
+Fakie Frontside Bigspin
+Fakie Frontside Pop Shove-it
+Fakie Hardflip
+Fakie Heelflip
+Fakie Inward Heelflip
+Fakie Kickflip
+Fakie Varial Heelflip
+Fakie Varial Kickflip
+Feather Flip
+Fingerflip
+Forward Flip
+Front Foot Impossible
+Frontside 360 Pop Shove it
+Frontside Bigspin
+Frontside Flip
+Frontside Half Cab Heelflip
+Frontside Half Cab Kickflip
+Frontside Heelflip
+Frontside Kickflip
+Frontside Pop Shove-it
+Gazelle Flip
+Gazelle Spin
+Ghetto Bird
+Gingersnap
+Grape Flip
+Half Cab
+Handstand Flip
+Hardflip
+Haslam Flip
+Heelflip
+Hospital Flip
+Illusion Flip
+Impossible
+Inward Heelflip
+Jesus Flip
+Kickback Flip
+Kickflip
+Kiwi Flip
+Laser Flip
+Late Kickflip
+Nerd Flip
+Nightmare Flip
+No Comply
+Nollie 360 Flip
+Nollie 360 Hardflip
+Nollie 360 Pop Shove-it
+Nollie Backside Bigspin
+Nollie Backside Heelflip
+Nollie Backside Kickflip
+Nollie Backside Pop Shove-it
+Nollie Frontside Bigspin
+Nollie Frontside Heelflip
+Nollie Frontside Kickflip
+Nollie Frontside Pop Shove-it
+Nollie Hardflip
+Nollie Heelflip
+Nollie Impossible
+Nollie Inward Heelflip
+Nollie Kickflip
+Nollie Laser Flip
+Nollie Varial Heelflip
+Nollie Varial Kickflip
+Ollie North
+Ollie South
+Orange Flip
+Plasma Spin
+Pressure Flip
+Rail Flip
+Semi Flip
+Sex Change
+Shuvit
+Sigma Flip
+Switch 360 Flip
+Switch 360 Hardflip
+Switch Backside Bigspin
+Switch Backside Heelflip
+Switch Backside Kickflip
+Switch Backside Pop Shove-it
+Switch Frontside Bigspin
+Switch Frontside Heelflip
+Switch Frontside Kickflip
+Switch Frontside Pop Shove-it
+Switch Hardflip
+Switch Heelflip
+Switch Inward Heelflip
+Switch Kickflip
+Switch Laser Flip
+Switch Varial Heelflip
+Switch Varial Kickflip
+Toeflip
+Triple Kickflip
+Underflip
+Varial Heelflip
+Varial Kickflip
+
+#Grind and Slide Tricks
+50-50 Grind
+Backside 5-0
+Backside 50-50
+Backside Bluntslide
+Backside Boardslide
+Backside Crooked
+Backside Feeble
+Backside Lipslide
+Backside Noseblunt Slide
+Backside Nosegrind
+Backside Noseslide
+Backside Overcrook
+Backside Salad
+Backside Smith
+Backside Suski
+Backside Tailslide
+Barley Grind
+Bertlemann Slide
+Bluntslide
+Boardslide
+Casper Slide
+Crail Slide
+Crooked Grind
+Darkslide
+Feeble Grind
+Frontside 5-0
+Frontside 50-50
+Frontside Bluntslide
+Frontside Boardslide
+Frontside Crooked
+Frontside Feeble
+Frontside Lipslide
+Frontside Noseblunt Slide
+Frontside Nosegrind
+Frontside Noseslide
+Frontside Overcrook
+Frontside Salad
+Frontside Smith
+Frontside Suski
+Frontside Tailslide
+Hurricane
+Hurricane Grind
+Layback Grind
+Lipslide
+Nail Slide
+Noseblunt Slide
+Nosegrind
+Noseslide
+Overcrook Grind
+Overturn
+Primo Grind
+Salad Grind
+Slash Grind
+Smith Grind
+Suski Grind
+Tailblock Grind
+Tailslide
+Willy Grind
