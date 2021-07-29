@@ -5,35 +5,43 @@ from kivymd.uix.button import MDFillRoundFlatIconButton, MDFillRoundFlatButton
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.label import MDLabel
 from kivymd.uix.toolbar import MDToolbar
-import Basic_Tricks
-import Grind_Slide_Tricks
+from Basic_Tricks import tricklist as basic_tricks
+from Grind_Slide_Tricks import tricklist as grind_tricks
+import random
+
+done_tricks = []
 
 class ConverterApp(MDApp):
     def flip(self):
+        global done_tricks
         if self.state == 0:
             self.state = 1
-            self.toolbar.title = "EUR to HRK converter"
-            self.input.hint_text = "Enter the value in EUR"
-            self.input.text = ""
-            self.label.text = ""
+            self.toolbar.title = "Flatground Tricks"
             self.converted.text = ""
+            self.trick_label.text = ""
+            self.stance_label.text = ""
+            done_tricks = []
         else:
             self.state = 0
-            self.toolbar.title = "HRK to EUR converter"
-            self.input.hint_text = "Enter the value in HRK"
-            self.input.text = ""
-            self.label.text = ""
+            self.toolbar.title = "Grind and Slide Tricks"
             self.converted.text = ""
+            self.trick_label.text = ""
+            self.stance_label.text = ""
+            done_tricks = []
 
     def convert(self, args):
         if self.state == 0:
-            val = round(float(self.input.text) * hrktoeur, 2)
-            self.label.text = "is in EUR:"
-            self.converted.text = str(val)
+            tricks = [i for i in basic_tricks if i not in done_tricks]
+            new_trick = (random.choice(tricks))
+            done_tricks.append(new_trick)
+            self.trick_label.text = new_trick[0]
+            self.stance_label.text = f"Stance: {new_trick[1]}"
         if self.state == 1:
-            val = round(float(self.input.text) * eurtohrk, 2)
-            self.label.text = "is in HRK:"
-            self.converted.text = str(val)
+            tricks = [i for i in grind_tricks if i not in done_tricks]
+            new_trick = (random.choice(tricks))
+            done_tricks.append(new_trick)
+            self.trick_label.text = new_trick[0]
+            self.stance_label.text = f"Stance: {new_trick[1]}"
 
     def build(self):
         self.state = 0
@@ -43,7 +51,7 @@ class ConverterApp(MDApp):
 
 
         #top toolbar
-        self.toolbar = MDToolbar(title = "Game of S.K.A.T.E")
+        self.toolbar = MDToolbar(title = "Flatground Tricks")
         self.toolbar.pos_hint = {"top" : 1}
         self.toolbar.right_action_items = [
             ["rotate-3d-variant", lambda x : self.flip()]]
@@ -60,22 +68,36 @@ class ConverterApp(MDApp):
 
 
         #user input
-        self.input = MDTextField(
+        self.trick_label = MDLabel(
             #font_size = 22,
-            hint_text = "Enter the value in HRK",
-            helper_text = "Please use . insted of , for cents",
-            helper_text_mode = "on_focus",
+            text = "",
             halign = "center",
-            icon_right = "calculator",
-            multiline = False,
-            on_text_validate = self.convert,
             pos_hint = {"center_x" : 0.5, "center_y" : 0.5},
-            size_hint = (0.8, 1.2)
+            size_hint = (0.8, 1.2),
+            font_style = "H4"
         )
-        screen.add_widget(self.input)
+        screen.add_widget(self.trick_label)
+
+        #more labels
+        self.stance_label = MDLabel(
+            text = "",
+            halign = "center",
+            pos_hint = {"center_x" : 0.5, "center_y" : 0.45},
+            theme_text_color = "Secondary"
+        )
+        screen.add_widget(self.stance_label)
+
+        self.letters_label = MDLabel(
+            text = "Letters: None",
+            halign = "center",
+            pos_hint = {"center_x" : 0.5, "center_y" : 0.3},
+            theme_text_color = "Primary",
+            font_style = "H5"
+        )
+        screen.add_widget(self.letters_label)
 
 
-        #convert button
+        #new trick button
         screen.add_widget(MDFillRoundFlatButton(
             text = "New Trick",
             #font_size = 17,
@@ -83,22 +105,6 @@ class ConverterApp(MDApp):
             on_press = self.convert
             )
         )
-
-        #more labels
-        self.label = MDLabel(
-            halign = "center",
-            pos_hint = {"center_x" : 0.5, "center_y" : 0.35},
-            theme_text_color = "Secondary"
-        )
-        screen.add_widget(self.label)
-        self.converted = MDLabel(
-            halign = "center",
-            pos_hint = {"center_x" : 0.5, "center_y" : 0.3},
-            theme_text_color = "Primary",
-            font_style = "H5"
-        )
-        screen.add_widget(self.converted)
-
 
         return screen
 
