@@ -9,8 +9,16 @@ import requests
 
 url_hrktoeur = "https://free.currconv.com/api/v7/convert?q=HRK_EUR&compact=ultra&apiKey=75f83697d28865fde0f4"
 url_eurtohrk = "https://free.currconv.com/api/v7/convert?q=EUR_HRK&compact=ultra&apiKey=75f83697d28865fde0f4"
-hrktoeur = 0.13
-eurtohrk = 7.51
+
+
+with open("cache.txt") as f:
+    contents = f.readlines()
+print(contents)
+
+hrktoeur = float(contents[0])
+eurtohrk = float(contents[1])
+
+
 class ConverterApp(MDApp):
     def flip(self):
         if self.state == 0:
@@ -43,24 +51,22 @@ class ConverterApp(MDApp):
         self.theme_cls.primary_palette = "DeepPurple"
         screen = MDScreen()
 
-
-        #top toolbar
-        self.toolbar = MDToolbar(title = "HRK to EUR converter")
-        self.toolbar.pos_hint = {"top" : 1}
+        # top toolbar
+        self.toolbar = MDToolbar(title="HRK to EUR converter")
+        self.toolbar.pos_hint = {"top": 1}
         self.toolbar.right_action_items = [
-            ["rotate-3d-variant", lambda x : self.flip()]]
+            ["rotate-3d-variant", lambda x: self.flip()]]
         screen.add_widget(self.toolbar)
 
-
-        #connection status label
+        # connection status label
         self.status_label = MDLabel(
             halign="right",
-            theme_text_color = "Hint",
-            pos_hint = {"center_x": 0.485, 'center_y': 0.05},
-            text = "Checking connection...",
+            theme_text_color="Hint",
+            pos_hint={"center_x": 0.485, 'center_y': 0.05},
+            text="Checking connection...",
             #font_size = 12,
-            font_style = "Caption"
-            )
+            font_style="Caption"
+        )
         screen.add_widget(self.status_label)
 
         try:
@@ -71,67 +77,68 @@ class ConverterApp(MDApp):
                 global hrktoeur, eurtohrk
                 hrktoeur = response.json()["HRK_EUR"]
                 eurtohrk = requests.get(url_eurtohrk).json()["EUR_HRK"]
+                file = open("cache.txt", "w")
+                file.write(f"{hrktoeur}\n{eurtohrk}")
+                file.close()
                 self.status_label.text = f"Status {int(response.status_code)}: CONNECTED\n1 EUR = {eurtohrk} HRK\n1 HRK = {hrktoeur} EUR"
             else:
                 self.status_label.theme_text_color = "Error"
                 self.status_label.text = f"Status {int(response.status_code)}: DISCONNECTED\n1 EUR = {eurtohrk} HRK\n1 HRK = {hrktoeur} EUR"
         except Exception as e:
-                self.status_label.theme_text_color = "Error"
-                self.status_label.text = f"Status error: NO INTERNET\n1 EUR = {eurtohrk} HRK\n1 HRK = {hrktoeur} EUR"
+            self.status_label.theme_text_color = "Error"
+            self.status_label.text = f"Status error: NO INTERNET\n1 EUR = {eurtohrk} HRK\n1 HRK = {hrktoeur} EUR"
 
-
-        #logo
+        # logo
         screen.add_widget(Image
-            (source = "logo.png",
-            pos_hint = {"center_x" : 0.5, "center_y" : 0.7},
-            size_hint = (0.35, 0.35)
-            )
-        )
+                          (source="logo.png",
+                           pos_hint={"center_x": 0.5, "center_y": 0.7},
+                              size_hint=(0.35, 0.35)
+                           )
+                          )
 
-
-        #user input
+        # user input
         self.input = MDTextField(
             #font_size = 22,
-            hint_text = "Enter the value in HRK",
-            helper_text = "Please use . insted of , for cents",
-            helper_text_mode = "on_focus",
-            halign = "center",
-            icon_right = "calculator",
-            multiline = False,
-            on_text_validate = self.convert,
-            pos_hint = {"center_x" : 0.5, "center_y" : 0.5},
-            size_hint = (0.8, 1.2),
-            mode = "rectangle"
+            hint_text="Enter the value in HRK",
+            helper_text="Please use . insted of , for cents",
+            helper_text_mode="on_focus",
+            halign="center",
+            icon_right="calculator",
+            multiline=False,
+            on_text_validate=self.convert,
+            pos_hint={"center_x": 0.5, "center_y": 0.5},
+            size_hint=(0.8, 1.2),
+            input_type="number",
+            mode="rectangle"
         )
         screen.add_widget(self.input)
 
-
-        #convert button
+        # convert button
         screen.add_widget(MDFillRoundFlatButton(
-            text = "CONVERT",
+            text="CONVERT",
             #font_size = 17,
-            pos_hint = {"center_x" : 0.5, "center_y" : 0.15},
-            on_press = self.convert
-            )
+            pos_hint={"center_x": 0.5, "center_y": 0.15},
+            on_press=self.convert
+        )
         )
 
-        #more labels
+        # more labels
         self.label = MDLabel(
-            halign = "center",
-            pos_hint = {"center_x" : 0.5, "center_y" : 0.35},
-            theme_text_color = "Secondary"
+            halign="center",
+            pos_hint={"center_x": 0.5, "center_y": 0.35},
+            theme_text_color="Secondary"
         )
         screen.add_widget(self.label)
         self.converted = MDLabel(
-            halign = "center",
-            pos_hint = {"center_x" : 0.5, "center_y" : 0.3},
-            theme_text_color = "Primary",
-            font_style = "H5"
+            halign="center",
+            pos_hint={"center_x": 0.5, "center_y": 0.3},
+            theme_text_color="Primary",
+            font_style="H5"
         )
         screen.add_widget(self.converted)
 
-
         return screen
+
 
 if __name__ == '__main__':
     ConverterApp().run()
