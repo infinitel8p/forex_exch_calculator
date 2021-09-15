@@ -1,3 +1,4 @@
 */screenshots/*
 */bin/*
 */.buildozer/*
+*/.git/*
