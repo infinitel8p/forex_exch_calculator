@@ -48,7 +48,7 @@ class ConverterApp(MDApp):
 
     def build(self):
         self.state = 0
-        self.theme_cls.primary_palette = "DeepPurple"
+        self.theme_cls.primary_palette = "Teal"
         screen = MDScreen()
 
         # top toolbar
