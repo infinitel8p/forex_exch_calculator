@@ -1,4 +1,6 @@
-### forex_exchange_calc
+### forex_exch_calculator
+
+https://play.google.com/store/apps/details?id=org.ferrara.forex_exch_calculator 
 
 a simple app to calculate the exchange rates from EUR to HRK and vice versa  
 works with https://free.currconv.com/ and hardcoded exchange rates when offline  
